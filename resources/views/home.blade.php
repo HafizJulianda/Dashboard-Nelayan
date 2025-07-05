@@ -55,7 +55,7 @@
                             <th>No</th>
                             <th>Bulan</th>
                             <th>Tahun</th>
-                            <th>Berat Ikan</th>
+                            <th>Berat Ikan (Ton)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -89,7 +89,7 @@
     {{-- Grafik --}}
     <div class="card">
         <div class="card-body">
-            <h5 class="text-center mb-3 text-secondary">📈 Grafik Jumlah Catatan per Bulan (Tahun {{ $tahunDipilih }})</h5>
+            <h5 class="text-center mb-3 text-secondary">📈 Grafik Total Berat Ikan per Bulan (Tahun {{ $tahunDipilih }})</h5>
             <canvas id="barChart"></canvas>
         </div>
     </div>
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
             datasets: [{
-                label: 'Jumlah Catatan',
+                label: 'Total Berat (Ton)',
                 data: {!! json_encode($chartData) !!},
                 backgroundColor: 'rgba(13, 110, 253, 0.6)',
                 borderColor: 'rgba(13, 110, 253, 1)',
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scales: {
                 y: {
                     beginAtZero: true,
-                    title: { display: true, text: 'Jumlah Catatan' }
+                    title: { display: true, text: 'Ton' }
                 },
                 x: {
                     title: { display: true, text: 'Bulan' }
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-{{-- Bootstrap JS + Optional Icons --}}
+{{-- Bootstrap JS + Icons --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </body>
